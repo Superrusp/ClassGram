@@ -49,8 +49,6 @@ To get a full development version of the app just execute the following commands
 3. You will get basic addresses as well as the *api_id* and *api_hash* parameters required for user authorization.
 4. set environment variables using generated previously *api_id* and *api_hash* in the following format: **TG_API_ID=your_api_id;TG_API_HASH=your_api_hash*
 
-Then in the file *ClassGram/backend/src/main/resources/application-dev.properties* you have to uncomment line number 4.
-
 In order to run Kurento MediaServer (needed for videoconferencing), the following command in the terminal must be executed:
 
 *docker run -p 4443:4443 --rm -e OPENVIDU_SECRET=MY_SECRET openvidu/openvidu-server-kms:2.20.0*
