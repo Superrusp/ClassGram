@@ -1,0 +1,61 @@
+<mat-dialog-content class="mat-typography">
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <h2>Login into Telegram</h2>
+    <mat-horizontal-stepper linear="true" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your phone number</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone number" formControlName="phoneNumber" cdkFocusInitial required>
+          </mat-form-field>
+          <div>
+            <button mat-button mat-dialog-close color="warn">Cancel</button>
+            <button mat-button matStepperNext (click)="this.sendLoginPhoneNumber()">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" label="Enter confirmation code">
+        <form [formGroup]="secondFormGroup">
+          <mat-form-field appearance="fill">
+            <mat-label>Confirmation Code</mat-label>
+            <input matInput formControlName="confirmationCode"
+                   required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext (click)="this.sendConfirmationCode()">Submit</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+
+<!--    <mat-card>-->
+<!--      <mat-card-header>-->
+<!--        <h2 mat-dialog-title>Login into Telegram</h2>-->
+<!--      </mat-card-header>-->
+<!--      <mat-card-content>-->
+<!--        <form id="login-form" class="tglogin-form" [formGroup]="this.tgLoginFg">-->
+<!--          <mat-form-field>-->
+<!--            <input matInput placeholder="Phone number" formControlName="phone-number" required (change)="this.phoneNumberChanged()">-->
+<!--          </mat-form-field>-->
+
+<!--          <mat-form-field *ngIf="this.confirmationResult">-->
+<!--            <input matInput placeholder="Verification code" formControlName="verification-code" required (change)="this.verificationCodeChanged()">-->
+<!--          </mat-form-field>-->
+<!--        </form>-->
+<!--      </mat-card-content>-->
+<!--      <mat-card-footer>-->
+<!--        <mat-card-actions>-->
+<!--          <button mat-button mat-dialog-close color="warn">Cancel</button>-->
+<!--          <button mat-button [disabled]="this.phoneNumberFilled" (click)="this.sendLoginPhoneNumber()">Login</button>-->
+<!--          <button mat-button *ngIf="!this.confirmationResult" [mat-dialog-close]="true" cdkFocusInitial (click)="this.verifyLoginCode()">Verify Code</button>-->
+<!--        </mat-card-actions>-->
+<!--      </mat-card-footer>-->
+<!--    </mat-card>-->
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+
+</mat-dialog-actions>
